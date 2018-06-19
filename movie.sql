@@ -1,0 +1,7 @@
+CREATE TABLE st_movies(
+	id INTEGER AUTO_INCREMENT NOT NULL,
+	title VARCHAR(255) NOT NULL, 
+	director VARCHAR(255) NOT NULL, 
+	year_of_release INTEGER NOT NULL, 
+	genre VARCHAR(255) NOT NULL
+);
