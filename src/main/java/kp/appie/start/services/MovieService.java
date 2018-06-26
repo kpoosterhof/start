@@ -12,8 +12,8 @@ public class MovieService {
 	@Autowired
 	MovieRepository movieRepo;
 	
-	public Movie getMovie() {
-		return movieRepo.getOne(1L);
+	public Movie getMovie(Long id) {
+		return movieRepo.getOne(id);
 	}
 	
 }

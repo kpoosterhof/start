@@ -14,7 +14,7 @@ public class MovieController {
 	
 	@RequestMapping("/")
 	public String showMovies() {
-		return movieService.getMovie().toString();
+		return movieService.getMovie(1L).toString();
 	}
 
 }
