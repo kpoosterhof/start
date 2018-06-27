@@ -2,8 +2,12 @@ package kp.appie.start.service;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -43,6 +47,27 @@ public class MovieServiceTest {
 		assertThat(mv.toString(), is("title: title, director: director, genre: genre, year: 2000"));
 		
 		verify(mr).getOne(1L);
+	}
+	
+	@Test
+	public void testAddMovie() {
+		doNothing().when(mr).save(movie);
+		
+		ms.addMovie(movie);
+		
+		verify(mr).save(movie);
+	}
+	
+	@Test
+	public void testGetMovies() {
+		List<Movie> list = new ArrayList<>();
+		list.add(movie);
+		when(mr.findAll()).thenReturn(list);
+		List<Movie> mvl = ms.getMovies();
+		
+		assertThat(mvl.size(), is(1));
+		
+		verify(mr).findAll();
 	}
 
 }

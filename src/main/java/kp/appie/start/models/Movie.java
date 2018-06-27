@@ -8,8 +8,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "st_movies")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Movie {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
